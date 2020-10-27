@@ -2,6 +2,7 @@ package ua.step.practice;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,7 +31,27 @@ public class Task09 {
 
         int[] arr;
         // TODO: Пишите код здесь
-
-
+        arr = new int[len];
+        System.out.print("Исходный массив ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rnd.nextInt(len + 3) - 2;
+        }
+        int tmp = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] < -1) {
+                tmp = 1;
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        System.out.print("Результат ");
+        if(tmp == 1) {
+            for (int i = 0; i < arr.length; i++) {
+                if(arr[i] <= -1) {
+                    arr[i] = arr[i] * arr[i];
+                }
+            }
+        }
+        System.out.print(Arrays.toString(arr));
     }
 }
